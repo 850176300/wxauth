@@ -25,13 +25,13 @@ router.get('/', function(req, res, next) {
   if(signature == scyptoString){
       console.log('true');
       //验证成功
-      res.status(200).send(echostr);
+      res.writeHead(200, {"Content-Type": "text"});
+      res.end(echostr);
   }else{
       console.log('false');
       res.send('error');
       return false;
   }
-  next();
 
 });
 
